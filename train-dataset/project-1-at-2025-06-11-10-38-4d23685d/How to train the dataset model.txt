@@ -1,0 +1,23 @@
+ChatGPT Link for more Reference: https://chatgpt.com/share/684a5392-3004-800f-9bf0-39e96567a522
+
+How to train the dataset model
+
+1. install "label studio" 
+i) python 3.10 is comfortable for "label studio"
+ii) cmd: "pip install label-studio"
+iii) run cmd: "python -m label_studio.server --host 0.0.0.0 --port 8080"
+
+2. annotate the real time project datas
+
+3. export this annotated dataset into the yolov8 model
+
+4. we got a label, images 2-folders
+i) we create new folders in two folder
+*train
+*val
+same img and txt file move in the 2 folders
+
+5. train cmd: " yolo task=detect mode=train model=yolov8n.pt data=data.yaml epochs=50 imgsz=640 batch=2 device=cpu "
+
+6. detection cmd: " yolo task=detect mode=predict model=runs/detect/train5/weights/best.pt source=sample.jpg "
+
